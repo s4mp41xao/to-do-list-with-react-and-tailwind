@@ -59,8 +59,8 @@ function App() {
 
   return (
     <div className="w-screen h-scrseen flex justify-center p-6">
-      <div className="w-[500px] space-y-4 border-4 p-4 rounded-md border-black bg-gray-100">
-        <Title>Lista de Tarefas</Title>
+      <div className="w-[500px] space-y-4 p-4 rounded-md">
+        <Title>Registre uma Tarefa</Title>
 
         <AddTask onAddTaskSubmit={onAddTaskSubmit} />
         <Tasks

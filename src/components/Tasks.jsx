@@ -1,6 +1,7 @@
 import { Check, ChevronRightIcon, Trash2 } from 'lucide-react'
 import { useNavigate } from 'react-router-dom'
 import Button from './Button'
+import Title from './Title'
 
 function Tasks({ tasks, onTaskClick, onDeleteTaskClick }) {
   const navigate = useNavigate()
@@ -15,12 +16,17 @@ function Tasks({ tasks, onTaskClick, onDeleteTaskClick }) {
 
   return (
     <div>
-      <ul className="space-y-4 p-6 bg-gray-200 rounded-md shadow-md">
+      <Title>Tarefas Registradas</Title>
+      <ul className="space-y-4 px-6 py-8 bg-gray-100 rounded-md shadow-md">
         {tasks.map(task => (
           <li key={task.id} className="flex gap-2">
+            <Button onClick={() => onClickDescription(task)}>
+              <ChevronRightIcon />
+            </Button>
+
             <button
               onClick={() => onTaskClick(task.id)}
-              className={`w-full p-2 text-left bg-gray-300 rounded-md flex items-center gap-2 ${
+              className={`w-full p-2 text-left bg-white border-2 border-black font-medium rounded-md flex items-center gap-2 ${
                 task.isCompleted && 'line-through'
               }`}
             >
@@ -28,11 +34,10 @@ function Tasks({ tasks, onTaskClick, onDeleteTaskClick }) {
               {task.title}
             </button>
 
-            <Button onClick={() => onClickDescription(task)}>
-              <ChevronRightIcon />
-            </Button>
-
-            <Button onClick={() => onDeleteTaskClick(task.id)}>
+            <Button
+              // className="bg-black p-2 rounded-md"
+              onClick={() => onDeleteTaskClick(task.id)}
+            >
               <Trash2 />
             </Button>
           </li>

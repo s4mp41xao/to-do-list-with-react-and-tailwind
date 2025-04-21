@@ -9,7 +9,7 @@ function AddTask({ onAddTaskSubmit }) {
   console.log(title, description)
 
   return (
-    <div className="space-y-4 p-6 bg-gray-200 rounded-md shadow-md flex flex-col">
+    <div className="space-y-4 p-6 bg-gray-200 rounded-md shadow-md flex flex-col border-2 border-black">
       <Input
         type="text"
         placeholder="Título da tarefa"
